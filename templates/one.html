@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
+<h1>Résultat de l'API Wikidata pour {{id}}</h1>
+<h2>Informations sur la requêtes</h2>
+<p>Code HTTP : {{r.status_code}}</p>
+<p>Type de contenu : {{r.headers['content-type']}}</p> <!--affiche du text/html-->
+{%if id.startswith('Q')%} <!--Vérifier que l'identifiant commence comme un identifiant wikidata-->
+<h2>Données de l'identité</h2>
+<p>{{r}}</p> <!--erreur 404-->
+{%else%}
+<p style="color: red;font-weight: bold;">Aucune donnée valide n'a été retournée pour l'ID {{id}}.</p>
+{%endif%}
+</html>
